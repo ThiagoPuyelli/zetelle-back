@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
-const routes = require("./routes/routes");
+const usersRoutes = require("./routes/users");
+const coursesRoutes = require("./routes/courses");
 
 const app = express();
 
@@ -25,7 +26,8 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.use("/", routes);
+app.use("/user/", usersRoutes);
+app.use("/course/", coursesRoutes);
 
 // START SERVER
 app.listen(app.get("port"), () => {
